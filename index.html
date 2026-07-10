@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BudgetFlow</title>
+
+<link rel="apple-touch-icon" href="icon.png">
+ 
+<link rel="manifest" href="manifest.json">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="apple-mobile-web-app-title" content="BudgetFlow">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+
+<body>
+ 
+
+<div id="loginScreen">
+
+<div class="login-box">
+
+<h1>
+💎 BudgetFlow
+</h1>
+
+<p>
+Premium Banking
+</p>
+
+
+<input 
+id="pinInput"
+type="password"
+maxlength="4"
+placeholder="PIN">
+
+
+<button id="loginBtn">
+Wejdź
+</button>
+
+
+<p id="loginError"></p>
+
+
+</div>
+
+</div>
+
+
+<div class="app">
+
+
+<!-- MENU -->
+
+<aside class="sidebar">
+
+
+<div class="logo">
+💎 BudgetFlow
+</div>
+
+
+<div class="profile">
+
+<div class="avatar">
+💎
+</div>
+
+
+<div>
+
+<b>Aleksandra Florek</b>
+
+<small>
+⭐ Premium VIP
+</small>
+
+</div>
+
+</div>
+
+
+<nav>
+
+
+<button class="nav active" data-page="dashboard">
+📊 Dashboard
+</button>
+
+
+<button class="nav" data-page="budget">
+💰 Budżet
+</button>
+
+
+<button class="nav" data-page="stats">
+📈 Statystyki
+</button>
+
+
+<button class="nav" data-page="settings">
+⚙️ Ustawienia
+</button>
+
+
+</nav>
+
+
+<button id="themeBtn">
+🌙 Motyw
+</button>
+
+
+
+</aside>
+
+
+
+
+
+<!-- GŁÓWNA STRONA -->
+
+<main class="main">
+
+
+
+<!-- DASHBOARD -->
+
+<section id="dashboard" class="page">
+
+
+<header>
+
+<div>
+
+<h1>
+Witaj Aleksandro 👋
+</h1>
+
+<p>
+Twoje finanse w jednym miejscu
+</p>
+
+</div>
+
+
+<button id="exportBtn">
+📄 CSV
+</button>
+
+
+</header>
+
+
+
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<span>
+Saldo
+</span>
+
+<h2 id="balance">
+25323.35PLN
+</h2>
+
+</div>
+
+
+
+<div class="card">
+
+<span>
+Przychody
+</span>
+
+<h2 id="income">
+7560PLN
+</h2>
+
+</div>
+
+
+
+<div class="card">
+
+<span>
+Wydatki
+</span>
+
+<h2 id="expense">
+2450  PLN
+</h2>
+
+</div>
+
+
+<div class="card">
+
+<span>
+Oszczędności
+</span>
+
+<h2>
+57%
+</h2>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="panel">
+
+
+<h2>
+Wydatki miesięczne
+</h2>
+
+
+<canvas id="expenseChart"></canvas>
+
+
+</div>
+
+
+
+<div class="panel">
+
+
+<h2>
+Historia
+</h2>
+
+<button id="addTransactionBtn">
+➕ Dodaj transakcję
+</button>
+
+
+<input id="search"
+placeholder="Szukaj transakcji...">
+
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>Data</th>
+
+<th>Nazwa</th>
+
+<th>Kategoria</th>
+
+<th>Kwota</th>
+
+</tr>
+
+</thead>
+
+
+
+<tbody id="transactions">
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+<!-- BUDŻET -->
+
+
+<section id="budget" class="page hidden">
+
+
+<h1>
+💰 Budżet
+</h1>
+
+
+<div class="panel">
+
+
+<h2>
+Cele oszczędnościowe
+</h2>
+
+
+<div class="goal">
+
+<p>
+Poduszka finansowa
+</p>
+
+
+<div class="progress">
+
+<div style="width:65%">
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="goal">
+
+<p>
+Wakacje
+</p>
+
+
+<div class="progress">
+
+<div style="width:40%">
+</div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+<div class="panel">
+
+<h2>
+Budżet miesięczny
+</h2>
+
+
+<div class="budget-item">
+
+<p>🍔 Jedzenie <span>1000 PLN</span></p>
+
+<div class="progress">
+<div id="foodProgress"></div>
+</div>
+
+</div>
+
+
+
+<div class="budget-item">
+
+<p>🛍️ Zakupy <span>800 PLN</span></p>
+
+<div class="progress">
+<div id="shopProgress"></div>
+</div>
+
+</div>
+
+
+
+<div class="budget-item">
+
+<p>⛽ Transport <span>500 PLN</span></p>
+
+<div class="progress">
+<div id="transportProgress"></div>
+</div>
+
+</div>
+
+
+
+<div class="budget-item">
+
+<p>🏠 Rachunki <span>600 PLN</span></p>
+
+<div class="progress">
+<div id="billsProgress"></div>
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+<!-- STATYSTYKI -->
+
+
+<section id="stats" class="page hidden">
+
+
+<h1>
+📈 Statystyki
+</h1>
+
+
+
+<div class="panel">
+
+
+<canvas id="categoryChart"></canvas>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- USTAWIENIA -->
+
+
+<section id="settings" class="page hidden">
+
+
+<h1>
+⚙️ Ustawienia
+</h1>
+
+
+
+<div class="panel">
+
+
+<h3>
+Wygląd
+</h3>
+
+
+<p>
+Zmień motyw aplikacji
+</p>
+
+
+<button id="themeBtn2">
+
+🌙 Przełącz
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="panel">
+
+
+<h3>
+Profil
+</h3>
+
+
+<p>
+Użytkownik:Premium
+</p>
+
+
+<p>
+Plan: Premium
+</p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+</div>
+
+
+<div id="transactionModal" class="modal">
+
+
+<div class="modal-box">
+
+<h2>
+Nowa transakcja
+</h2>
+
+
+<input id="transName" placeholder="Nazwa">
+
+
+<select id="transType">
+
+<option value="income">
+Wpłata
+</option>
+
+<option value="expense">
+Wypłata
+</option>
+
+</select>
+
+
+<select id="transCategory">
+
+<option value="Jedzenie">
+🍔 Jedzenie
+</option>
+
+<option value="Zakupy">
+🛍️ Zakupy
+</option>
+
+<option value="Ubrania">
+👗 Ubrania
+</option>
+
+<option value="Biżuteria">
+💎 Biżuteria
+</option>
+
+<option value="Transport">
+⛽ Transport
+</option>
+
+<option value="Elektronika">
+📱 Elektronika
+</option>
+
+<option value="Rachunki">
+🏠 Rachunki
+</option>
+
+<option value="Przychód">
+💰 Wynagrodzenie
+</option>
+
+<option value="Inne">
+✨ Inne
+</option>
+
+</select>
+
+
+
+
+<input id="transAmount" type="number" placeholder="Kwota">
+
+
+<button id="saveTransaction">
+Zapisz
+</button>
+
+
+<button id="closeModal">
+Anuluj
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<div id="toast">
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

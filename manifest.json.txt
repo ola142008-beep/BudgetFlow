@@ -1,0 +1,15 @@
+{
+  "name": "BudgetFlow Premium",
+  "short_name": "BudgetFlow",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#d4af37",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

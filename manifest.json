@@ -1,0 +1,9 @@
+{
+"name":"BudgetFlow",
+"short_name":"BudgetFlow",
+"start_url":"index.html",
+"display":"standalone",
+"background_color":"#07111f",
+"theme_color":"#38bdf8",
+"icons":[]
+}
