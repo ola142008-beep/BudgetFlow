@@ -1190,14 +1190,12 @@ overflow-x:hidden;
 
 }
 
-
-
 table{
     width:100%;
     min-width:0;
-
-
 }
+
+
 
 
 
@@ -1318,6 +1316,42 @@ translateY(0);
 }
 
 }
+
+/* =========================
+   POPRAWKA HISTORII NA IPHONE
+========================= */
+
+@media (max-width: 768px){
+
+table{
+    width:100%;
+    min-width:0;
+    font-size:14px;
+}
+
+thead th{
+    padding:8px 5px;
+}
+
+tbody td{
+    padding:8px 5px;
+}
+
+
+.panel{
+    overflow-x:hidden;
+}
+
+
+table th:nth-child(3),
+table td:nth-child(3){
+
+display:none;
+
+}
+
+
+}
 /* =========================
    IPHONE - HISTORIA FIX
 ========================= */
@@ -1367,5 +1401,82 @@ td:nth-child(3){
 button{
     max-width:100%;
 }
+
+}
+/* =========================
+   HISTORIA - IPHONE KARTY
+========================= */
+
+@media (max-width:768px){
+
+table,
+thead,
+tbody,
+th,
+td,
+tr{
+    display:block;
+}
+
+
+thead{
+    display:none;
+}
+
+
+table{
+    width:100%;
+}
+
+
+tr{
+
+    background:#111;
+    border:1px solid #d4af37;
+    border-radius:15px;
+    margin-bottom:15px;
+    padding:12px;
+}
+
+
+td{
+
+    display:flex;
+    justify-content:space-between;
+    padding:6px;
+    color:white;
+    border:none;
+
+}
+
+
+td:nth-child(1)::before{
+    content:"📅 Data";
+    color:#d4af37;
+}
+
+
+td:nth-child(2)::before{
+    content:"💳 Nazwa";
+    color:#d4af37;
+}
+
+
+td:nth-child(3)::before{
+    content:"🏷️ Kategoria";
+    color:#d4af37;
+}
+
+
+td:nth-child(4)::before{
+    content:"💰 Kwota";
+    color:#d4af37;
+}
+
+
+td:nth-child(5)::before{
+    content:"";
+}
+
 
 }
