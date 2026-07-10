@@ -1433,9 +1433,17 @@ th, td{
 }
 
 
-canvas{
-    max-width:100% !important;
-    height:220px !important;
+@media (max-width:768px){
+
+#expenseChart{
+    width:100% !important;
+    height:250px !important;
 }
+
+.panel{
+    padding:15px;
+}
+
+
 
 }
