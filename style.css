@@ -1317,3 +1317,54 @@ translateY(0);
 }
 
 }
+/* =========================
+   IPHONE - HISTORIA FIX
+========================= */
+
+@media screen and (max-width: 768px){
+
+.app{
+    width:100%;
+    overflow-x:hidden;
+}
+
+.main{
+    width:100%;
+    padding:15px;
+    overflow-x:hidden;
+}
+
+
+.panel{
+    width:100%;
+    box-sizing:border-box;
+    overflow:hidden;
+}
+
+
+table{
+    width:100%;
+    table-layout:fixed;
+}
+
+
+th, td{
+    word-wrap:break-word;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    font-size:13px;
+}
+
+
+th:nth-child(3),
+td:nth-child(3){
+    display:none;
+}
+
+
+button{
+    max-width:100%;
+}
+
+}
