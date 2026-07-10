@@ -1186,15 +1186,16 @@ align-items:flex-start;
 
 .panel{
 
-overflow-x:auto;
+overflow-x:hidden;
 
 }
 
 
 
 table{
+    width:100%;
+    min-width:0;
 
-min-width:600px;
 
 }
 
