@@ -1369,28 +1369,3 @@ button{
 }
 
 }
-/* FIX IPHONE SZEROKOSC */
-
-html, body{
-    max-width:100%;
-    overflow-x:hidden;
-}
-
-.app,
-.main,
-.page,
-.panel{
-    max-width:100%;
-    overflow-x:hidden;
-}
-
-table{
-    width:100% !important;
-    max-width:100%;
-}
-
-td, th{
-    max-width:120px;
-    overflow:hidden;
-    text-overflow:ellipsis;
-}
